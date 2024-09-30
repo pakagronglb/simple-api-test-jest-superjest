@@ -1,4 +1,4 @@
-# Simplest way to test RESTful API with **Jest & Supertest**
+# Simplest Way to Test RESTful APIs with Jest & Supertest
 
 To test an API with Jest, you'll need to follow these steps (once you've created your project directory):
 
@@ -92,6 +92,24 @@ Snapshots:   0 total
 Time:        1.234 s
 ```
 
-Here's the preview
+## Here's the preview
 
 ![Screenshot 2024-09-30 085242](https://github.com/user-attachments/assets/0d4dc430-adec-4486-ac40-ba93feef12a1)
+
+--------------------------------------------------------------------------------------------
+
+### Explanation:
+- ```request(appServer)```: Creates a supertest agent to interact with your Express app.
+- ```.get('/api/hello')```: Sends a GET request to the ```/api/hello``` endpoint.
+- ```expect(res.statusCode).toEqual(200)```: Asserts that the response status code is 200 (OK).
+- ```expect(res.body).toHaveProperty('message', 'Hello, world!')```: Asserts that the response body has a property named ```message``` with the value ```Hello, world!```.
+
+### Additional Tips:
+- **Test different HTTP methods**: Use ```post```, ```put```, ```delete```, etc., to test different API operations.
+- **Test error handling**: Write tests to ensure your API handles errors gracefully.
+- **Test with different input data**: Test your API with various input values to ensure it handles them correctly.
+- **Use a mocking library**: For more complex testing scenarios, consider using a mocking library like ```jest-mock``` to mock dependencies.
+- **Consider a testing framework**: Explore using a testing framework like ```nock``` to mock network requests and isolate your tests.
+
+By following these steps and incorporating the additional tips, you can effectively test your RESTful APIs with Jest and Supertest, ensuring their reliability and correctness :D
+
